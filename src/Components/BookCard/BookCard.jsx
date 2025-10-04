@@ -1,20 +1,24 @@
 import { Star } from "lucide-react";
-import React from "react";
+import { useNavigate } from "react-router";
 
 const BookCard = ({ book }) => {
-  const { author, bookId, bookName, category, image, publisher, rating, tags } =
-    book;
+  const { author, bookId, bookName, category, image, rating, tags } = book;
+
+  const navigate = useNavigate();
   return (
-    <div className="card bg-base-100 shadow-sm">
+    <div
+      onClick={() => navigate(`/book-details/${bookId}`, { state: book })}
+      className="card bg-base-100 shadow-sm cursor-pointer"
+    >
       <div className="card-body">
         <figure className="py-12 bg-[#F3F3F3] rounded-2xl">
           <img className="h-52" src={image} alt={bookName} loading="lazy" />
         </figure>
         <div className="space-x-3.5">
-          {tags.map((tag) => (
-            <div className="badge bg-[#23be0a0d] font-medium my-3 text-[#23BE0A]">
+          {tags.map((tag,index) => (
+            <span key={index} className="badge bg-[#23be0a0d] font-medium my-3 text-[#23BE0A]">
               {tag}
-            </div>
+            </span>
           ))}
         </div>
         <h2 className="text-2xl font-semibold">{bookName}</h2>
