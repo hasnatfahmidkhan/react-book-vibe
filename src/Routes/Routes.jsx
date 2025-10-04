@@ -3,6 +3,7 @@ import RootLayout from "../Layouts/RootLayout";
 import Home from "../Pages/Home/Home";
 import ListedBooks from "../Pages/ListedBooks/ListedBooks";
 import axios from "axios";
+import SpinnerCircle from "../Components/SpinnerCircle/SpinnerCircle";
 
 export const router = createBrowserRouter([
   {
@@ -12,6 +13,7 @@ export const router = createBrowserRouter([
       {
         index: true,
         Component: Home,
+        HydrateFallback: SpinnerCircle,
         loader: () => axios("/data/booksData.json"),
       },
       {
