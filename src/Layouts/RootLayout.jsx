@@ -5,7 +5,7 @@ import Container from "../Components/Container/Container";
 
 const RootLayout = () => {
   return (
-    <div>
+    <>
       <Navbar />
       <main className="min-h-[calc(100vh-300px)]">
         <Container>
@@ -13,7 +13,7 @@ const RootLayout = () => {
         </Container>
       </main>
       <Footer />
-    </div>
+    </>
   );
 };
 
