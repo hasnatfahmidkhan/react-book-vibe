@@ -1,6 +1,6 @@
 import { Menu } from "lucide-react";
 import "./navbar.css";
-import { NavLink } from "react-router";
+import { Link, NavLink } from "react-router";
 
 const Navbar = () => {
   const links = (
@@ -27,7 +27,7 @@ const Navbar = () => {
           <ul className="flex gap-8 text-xl ">{links}</ul>
         </div>
         <div className="navbar-end">
-          <div className="flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-6 ">
             <div className="flex items-center gap-3">
               <button className="btn rounded-lg bg-[#23BE0A] text-lg text-white p-6">
                 Sign In
@@ -48,6 +48,12 @@ const Navbar = () => {
               className="menu menu-lg  dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow text"
             >
               {links}
+                <Link>
+                  Sign In
+                </Link>
+                <Link>
+                  Sign Up
+                </Link>
             </ul>
           </div>
         </div>
