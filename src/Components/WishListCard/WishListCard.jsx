@@ -1,7 +1,7 @@
 import { FileChartColumnIncreasing, MapPin, Users } from "lucide-react";
 import { useNavigate } from "react-router";
 
-const ReadListCard = ({ book }) => {
+const WishListCard = ({ book }) => {
   const navigate = useNavigate();
   const {
     author,
@@ -76,4 +76,4 @@ const ReadListCard = ({ book }) => {
   );
 };
 
-export default ReadListCard;
+export default WishListCard;

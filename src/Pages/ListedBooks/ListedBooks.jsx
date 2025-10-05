@@ -4,9 +4,13 @@ import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "react-tabs/style/react-tabs.css";
 import { getStoredData } from "../../Utility/addToDB";
 import ReadListCard from "../../Components/ReadListCard/ReadListCard";
+import WishListCard from "../../Components/WishListCard/WishListCard";
+import { getWishListData } from "../../Utility/addWishListToDB";
 const ListedBooks = () => {
   const { data: books } = useLoaderData();
   const [storedBooks, setstoredBooks] = useState([]);
+  const [storedWishLists, setStoredWishLists] = useState([]);
+
   useEffect(() => {
     const booksId = getStoredData();
     const convertedBookId = booksId.map((id) => parseInt(id));
@@ -16,7 +20,17 @@ const ListedBooks = () => {
 
     setstoredBooks(readbooks);
   }, [books]);
-  console.log(storedBooks);
+
+  useEffect(() => {
+    const booksId = getWishListData();
+    const convertedBookId = booksId.map((id) => parseInt(id));
+    const wishLists = books.filter((book) =>
+      convertedBookId.includes(book.bookId)
+    );
+
+    setStoredWishLists(wishLists);
+  }, [books]);
+
   return (
     <section>
       <div className="bg-[#F3F3F3] text-center py-10 rounded-xl">
@@ -38,7 +52,11 @@ const ListedBooks = () => {
           </TabPanel>
 
           <TabPanel>
-            <h2>WishList Books</h2>
+            <section className="my-8 space-y-5">
+              {storedWishLists.map((book) => (
+                <WishListCard key={book.bookId} book={book} />
+              ))}
+            </section>
           </TabPanel>
         </Tabs>
       </div>

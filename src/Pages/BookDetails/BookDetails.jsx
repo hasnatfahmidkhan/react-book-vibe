@@ -1,5 +1,6 @@
 import { useLocation } from "react-router";
 import { addToStoredDB } from "../../Utility/addToDB";
+import { addWishListData } from "../../Utility/addWishListToDB";
 
 const BookDetails = () => {
   const { state: book } = useLocation();
@@ -16,9 +17,15 @@ const BookDetails = () => {
     publisher,
     bookId,
   } = book;
+
   const handleMarkedAsRead = (id) => {
     addToStoredDB(id);
   };
+
+  const handleWishList = (id) => {
+    addWishListData(id);
+  };
+
   return (
     <>
       <div className="flex flex-col lg:flex-row justify-between gap-10">
@@ -75,7 +82,10 @@ const BookDetails = () => {
             >
               Mark as Read
             </button>
-            <button className="btn p-6 rounded-md text-lg bg-[#50B1C9] hover:bg-[#3796ad] text-white">
+            <button
+              onClick={() => handleWishList(bookId)}
+              className="btn p-6 rounded-md text-lg bg-[#50B1C9] hover:bg-[#3796ad] text-white"
+            >
               Add to Wishlist
             </button>
           </div>
