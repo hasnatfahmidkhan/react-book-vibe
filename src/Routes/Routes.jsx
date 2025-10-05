@@ -20,6 +20,8 @@ export const router = createBrowserRouter([
       {
         path: "/listed-books",
         Component: ListedBooks,
+        HydrateFallback: SpinnerCircle,
+        loader: () => axios("/data/booksData.json"),
       },
       {
         path: "/pages-to-read",
