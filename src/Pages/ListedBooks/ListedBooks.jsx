@@ -48,14 +48,14 @@ const ListedBooks = () => {
 
     if (option === "Number of pages") {
       const sortedReadBooks = [...storedBooks].sort(
-        (a, b) => a.rating - b.rating
+        (a, b) => a.totalPages - b.totalPages
       );
       setstoredBooks(sortedReadBooks);
       setStoredWishLists(sortedReadBooks);
     }
     if (option === "Publisher year") {
       const sortedReadBooks = [...storedBooks].sort(
-        (a, b) => a.rating - b.rating
+        (a, b) => a.yearOfPublishing - b.yearOfPublishing
       );
       setstoredBooks(sortedReadBooks);
       setStoredWishLists(sortedReadBooks);
