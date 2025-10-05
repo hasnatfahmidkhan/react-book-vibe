@@ -18,8 +18,8 @@ const ReadListCard = ({ book }) => {
     bookId,
   } = book;
   return (
-    <div className="flex flex-col lg:flex-row justify-start border border-[#13131326] rounded-3xl p-6 shadow-md gap-10">
-      <figure className="bg-[#F3F3F3] p-10 w-[250px] h-fit rounded-2xl  flex items-center justify-center">
+    <div className="flex flex-col lg:flex-row  justify-start border border-[#13131326] rounded-3xl p-6 shadow-md gap-10">
+      <figure className="bg-[#F3F3F3] p-10 md:w-[250px] h-fit rounded-2xl  flex items-center justify-center">
         <img
           src={image}
           className="max-w-[120px] h-fit rounded-lg shadow-2xl"
@@ -28,9 +28,9 @@ const ReadListCard = ({ book }) => {
       <div className="p-4 ">
         <h1 className="text-3xl playfair-font font-semibold">{bookName}</h1>
         <p className="font-medium pt-5">By : {author}</p>
-        <div className="flex items-center py-4 gap-4">
-          <div className="space-x-3.5 text-lg">
-            <span className="font-bold">Tag</span>
+        <div className="flex flex-col md:flex-row items-start md:items-center py-4 gap-4">
+          <div className="flex flex-wrap gap-4 items-center  md:text-lg">
+            <span className="font-bold text-lg">Tag</span>
             {tags.map((tag, index) => (
               <span
                 key={index}
@@ -45,7 +45,7 @@ const ReadListCard = ({ book }) => {
             Year of Publishing: {yearOfPublishing}
           </span>
         </div>
-        <div className="flex items-center gap-5">
+        <div className="flex flex-col md:flex-row items-start md:items-center gap-5">
           <span className="text-[#131313b3] text-lg flex items-center gap-1">
             <Users />
             Publisher: {publisher}
@@ -58,7 +58,7 @@ const ReadListCard = ({ book }) => {
 
         <div className="divider"></div>
 
-        <div className="space-x-6">
+        <div className="flex flex-col md:flex-row gap-4">
           <button className="btn p-6 text-[#328EFF] rounded-full bg-[#328eff26] border-none font-normal text-lg">
             Catergory: <span>{category}</span>
           </button>

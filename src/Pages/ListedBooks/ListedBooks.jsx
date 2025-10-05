@@ -30,7 +30,7 @@ const ListedBooks = () => {
           </TabList>
 
           <TabPanel>
-            <section className="my-8">
+            <section className="my-8 space-y-5">
               {storedBooks.map((book) => (
                 <ReadListCard key={book.bookId} book={book} />
               ))}
