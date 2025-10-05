@@ -5,6 +5,7 @@ import ListedBooks from "../Pages/ListedBooks/ListedBooks";
 import axios from "axios";
 import SpinnerCircle from "../Components/SpinnerCircle/SpinnerCircle";
 import BookDetails from "../Pages/BookDetails/BookDetails";
+import PagesToRead from "../Pages/PagesToRead/PagesToRead";
 
 export const router = createBrowserRouter([
   {
@@ -25,7 +26,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/pages-to-read",
-        Component: ListedBooks,
+        Component: PagesToRead,
       },
       {
         path: "/book-details/:id",

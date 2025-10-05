@@ -67,6 +67,7 @@ const ListedBooks = () => {
         <h2 className="text-4xl font-semibold">Books</h2>
       </div>
 
+      {/* Sorted UI  */}
       <div className="relative w-52 mt-10 mx-auto">
         <div
           onClick={() => setArrow(!arrow)}
@@ -78,7 +79,7 @@ const ListedBooks = () => {
         </div>
 
         {arrow && (
-          <ul className="absolute top-full left-0 mt-2 menu bg-base-100 rounded-md z-10 w-full text-center p-2 shadow-md space-y-2 text-lg text-gray-700 cursor-pointer">
+          <ul className="absolute top-full left-0 mt-2 menu bg-base-100 rounded-md z-10 w-full text-center p-2 shadow-md text-lg text-gray-700 cursor-pointer">
             <li
               className="hover:bg-gray-200 py-2 rounded"
               onClick={() => handleSelect("Rating")}
@@ -100,6 +101,8 @@ const ListedBooks = () => {
           </ul>
         )}
       </div>
+
+      {/* Tabs  */}
       <div className="py-10">
         <Tabs>
           <TabList>
@@ -109,17 +112,29 @@ const ListedBooks = () => {
 
           <TabPanel>
             <section className="my-8 space-y-5">
-              {storedBooks.map((book) => (
-                <ReadListCard key={book.bookId} book={book} />
-              ))}
+              {storedBooks.length === 0 ? (
+                <div className="flex items-center justify-center">
+                  <h2>No Books Read Now</h2>
+                </div>
+              ) : (
+                storedBooks.map((book) => (
+                  <ReadListCard key={book.bookId} book={book} />
+                ))
+              )}
             </section>
           </TabPanel>
 
           <TabPanel>
             <section className="my-8 space-y-5">
-              {storedWishLists.map((book) => (
-                <WishListCard key={book.bookId} book={book} />
-              ))}
+              {storedWishLists.length === 0 ? (
+                <div className="flex items-center justify-center">
+                  <h2>No wishList Added Now</h2>
+                </div>
+              ) : (
+                storedWishLists.map((book) => (
+                  <WishListCard key={book.bookId} book={book} />
+                ))
+              )}
             </section>
           </TabPanel>
         </Tabs>
